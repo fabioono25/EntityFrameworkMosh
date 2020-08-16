@@ -53,6 +53,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Cover.cs" />
+    <Compile Include="EntityConfigurations\CourseConfiguration.cs" />
     <Compile Include="Migrations\202008161517394_InitialMigration.cs" />
     <Compile Include="Migrations\202008161517394_InitialMigration.Designer.cs">
       <DependentUpon>202008161517394_InitialMigration.cs</DependentUpon>

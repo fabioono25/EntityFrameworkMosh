@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using Pluto.EntityConfigurations;
+using System.Data.Entity;
 
 namespace Pluto
 {
@@ -17,31 +18,32 @@ namespace Pluto
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Fluent API
+            ////Fluent API
+            ////modelBuilder.Entity<Course>()
+            ////    .Property(t => t.Description)
+            ////    .IsRequired();
+
             //modelBuilder.Entity<Course>()
-            //    .Property(t => t.Description)
-            //    .IsRequired();
+            //    .HasRequired(c => c.Author)
+            //    .WithMany(a => a.Courses)
+            //    .HasForeignKey(c => c.AuthorId)
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Course>()
-                .HasRequired(c => c.Author)
-                .WithMany(a => a.Courses)
-                .HasForeignKey(c => c.AuthorId)
-                .WillCascadeOnDelete(false);
+            //modelBuilder.Entity<Course>()
+            //    .HasMany(c => c.Tags)
+            //    .WithMany(t => t.Courses)
+            //    .Map(m => {
+            //        m.ToTable("CourseTags");
+            //        m.MapLeftKey("CourseId"); //left is course
+            //        m.MapRightKey("TagId");
+            //     });
 
-            modelBuilder.Entity<Course>()
-                .HasMany(c => c.Tags)
-                .WithMany(t => t.Courses)
-                .Map(m => {
-                    m.ToTable("CourseTags");
-                    m.MapLeftKey("CourseId"); //left is course
-                    m.MapRightKey("TagId");
-                 });
+            //modelBuilder.Entity<Course>()
+            //    .HasRequired(c => c.Cover)
+            //    .WithRequiredPrincipal(c => c.Course); //Course is the parent
 
-            modelBuilder.Entity<Course>()
-                .HasRequired(c => c.Cover)
-                .WithRequiredPrincipal(c => c.Course); //Course is the parent
-
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new CourseConfiguration());
         }
     }
 }
