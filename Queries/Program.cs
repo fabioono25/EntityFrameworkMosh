@@ -66,6 +66,20 @@ namespace Queries
                 Console.WriteLine(course.Name);
             }
 
+            //
+            var tags = context.Courses.Where(c => c.Level == 1).Select(c => c.Tags);
+            var tags2 = context.Courses.Where(c => c.Level == 1).SelectMany(c => c.Tags);
+
+            //Partitioning
+            context.Courses.Skip(10).Take(10);
+
+            //Element Operators
+            context.Courses.FirstOrDefault(c => c.Level > 10);
+
+            //Quantifying
+            context.Courses.All(c => c.FullPrice > 10); // Any | Count
+
+
         }
     }
 }
