@@ -14,5 +14,30 @@ namespace Pluto
         {
 
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //Fluent API
+            //modelBuilder.Entity<Course>()
+            //    .Property(t => t.Description)
+            //    .IsRequired();
+
+            modelBuilder.Entity<Course>()
+                .HasRequired(c => c.Author)
+                .WithMany(a => a.Courses)
+                .HasForeignKey(c => c.AuthorId)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Course>()
+                .HasMany(c => c.Tags)
+                .WithMany(t => t.Courses)
+                .Map(m => m.ToTable("CourseTags"));
+
+            modelBuilder.Entity<Course>()
+                .HasRequired(c => c.Cover)
+                .WithRequiredPrincipal(c => c.Course); //Course is the parent
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

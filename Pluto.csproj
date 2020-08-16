@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="Cover.cs" />
     <Compile Include="Migrations\202008161517394_InitialMigration.cs" />
     <Compile Include="Migrations\202008161517394_InitialMigration.Designer.cs">
       <DependentUpon>202008161517394_InitialMigration.cs</DependentUpon>
@@ -83,6 +84,14 @@
     <Compile Include="Migrations\202008161631461_PopulateCategoriesTable.cs" />
     <Compile Include="Migrations\202008161631461_PopulateCategoriesTable.Designer.cs">
       <DependentUpon>202008161631461_PopulateCategoriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161723186_CreateAuthorForeignKeyForCourse.cs" />
+    <Compile Include="Migrations\202008161723186_CreateAuthorForeignKeyForCourse.Designer.cs">
+      <DependentUpon>202008161723186_CreateAuthorForeignKeyForCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161732016_AddCoverToTheContext.cs" />
+    <Compile Include="Migrations\202008161732016_AddCoverToTheContext.Designer.cs">
+      <DependentUpon>202008161732016_AddCoverToTheContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlutoContext.cs" />
@@ -117,6 +126,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008161631461_PopulateCategoriesTable.resx">
       <DependentUpon>202008161631461_PopulateCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161723186_CreateAuthorForeignKeyForCourse.resx">
+      <DependentUpon>202008161723186_CreateAuthorForeignKeyForCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161732016_AddCoverToTheContext.resx">
+      <DependentUpon>202008161732016_AddCoverToTheContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
