@@ -50,11 +50,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="Course.cs" />
     <Compile Include="Migrations\202008161517394_InitialMigration.cs" />
     <Compile Include="Migrations\202008161517394_InitialMigration.Designer.cs">
       <DependentUpon>202008161517394_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008161552369_AddCategoriesTable.cs" />
+    <Compile Include="Migrations\202008161552369_AddCategoriesTable.Designer.cs">
+      <DependentUpon>202008161552369_AddCategoriesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161557395_AddCategoryColumnToCoursesTable.cs" />
+    <Compile Include="Migrations\202008161557395_AddCategoryColumnToCoursesTable.Designer.cs">
+      <DependentUpon>202008161557395_AddCategoryColumnToCoursesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161603123_AddDatePublishedColumnToCoursesTable.cs" />
+    <Compile Include="Migrations\202008161603123_AddDatePublishedColumnToCoursesTable.Designer.cs">
+      <DependentUpon>202008161603123_AddDatePublishedColumnToCoursesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161605317_RenameTitleToNameInCoursesTable.cs" />
+    <Compile Include="Migrations\202008161605317_RenameTitleToNameInCoursesTable.Designer.cs">
+      <DependentUpon>202008161605317_RenameTitleToNameInCoursesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161620140_DeleteCategoryColumnFromCoursesTable.cs" />
+    <Compile Include="Migrations\202008161620140_DeleteCategoryColumnFromCoursesTable.Designer.cs">
+      <DependentUpon>202008161620140_DeleteCategoryColumnFromCoursesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202008161621215_DeleteCategoriesTable.cs" />
+    <Compile Include="Migrations\202008161621215_DeleteCategoriesTable.Designer.cs">
+      <DependentUpon>202008161621215_DeleteCategoriesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PlutoContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +92,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202008161517394_InitialMigration.resx">
       <DependentUpon>202008161517394_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161552369_AddCategoriesTable.resx">
+      <DependentUpon>202008161552369_AddCategoriesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161557395_AddCategoryColumnToCoursesTable.resx">
+      <DependentUpon>202008161557395_AddCategoryColumnToCoursesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161603123_AddDatePublishedColumnToCoursesTable.resx">
+      <DependentUpon>202008161603123_AddDatePublishedColumnToCoursesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161605317_RenameTitleToNameInCoursesTable.resx">
+      <DependentUpon>202008161605317_RenameTitleToNameInCoursesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161620140_DeleteCategoryColumnFromCoursesTable.resx">
+      <DependentUpon>202008161620140_DeleteCategoryColumnFromCoursesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161621215_DeleteCategoriesTable.resx">
+      <DependentUpon>202008161621215_DeleteCategoriesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
