@@ -1,6 +1,7 @@
 namespace Pluto.Migrations
 {
     using System;
+    using System.Collections.ObjectModel;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -26,6 +27,16 @@ namespace Pluto.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.Authors.AddOrUpdate(a => a.Name, 
+                new Author
+                {
+                    Name = "Didi",
+                    Courses = new Collection<Course>(){
+                        new Course {
+                            Name = "Course 1"
+                        }
+                    }
+                });
         }
     }
 }
