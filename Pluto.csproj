@@ -93,6 +93,10 @@
     <Compile Include="Migrations\202008161732016_AddCoverToTheContext.Designer.cs">
       <DependentUpon>202008161732016_AddCoverToTheContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008161736468_UpdateColumnNameForCourseTagsTable.cs" />
+    <Compile Include="Migrations\202008161736468_UpdateColumnNameForCourseTagsTable.Designer.cs">
+      <DependentUpon>202008161736468_UpdateColumnNameForCourseTagsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PlutoContext.cs" />
     <Compile Include="Program.cs" />
@@ -132,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202008161732016_AddCoverToTheContext.resx">
       <DependentUpon>202008161732016_AddCoverToTheContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008161736468_UpdateColumnNameForCourseTagsTable.resx">
+      <DependentUpon>202008161736468_UpdateColumnNameForCourseTagsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
