@@ -13,7 +13,7 @@ namespace Pluto
         public PlutoContext()
             : base("name=DefaultConnection")
         {
-
+            this.Configuration.LazyLoadingEnabled = false; //lazy-loading will not gonna be used on this context
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

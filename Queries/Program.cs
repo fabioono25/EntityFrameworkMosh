@@ -26,58 +26,58 @@ namespace Queries
                 Console.WriteLine(course.Name);
             }
 
-            //Grouping
-            var q =
-                from c in context.Courses
-                group c by c.Level
-                into g
-                select g;
+            ////Grouping
+            //var q =
+            //    from c in context.Courses
+            //    group c by c.Level
+            //    into g
+            //    select g;
 
-            foreach (var group in q)
-            {
-                Console.WriteLine(group.Key);
+            //foreach (var group in q)
+            //{
+            //    Console.WriteLine(group.Key);
 
-                foreach (var course in group)
-                {
-                    Console.WriteLine("\t{0}", course.Name);
-                }
-            }
-
-            //Group join
-            //LINQ Syntax:
-            //var query2 =
-            //    from a in context.Authors
-            //    join c in context.Courses on a.Id equals c.Author into g
-            //    select new
+            //    foreach (var course in group)
             //    {
-            //        AuthorName = a.Name,
-            //        Courses = g.Count()
-            //    };
+            //        Console.WriteLine("\t{0}", course.Name);
+            //    }
+            //}
 
-            var q3 = from a in context.Authors
-                     from b in context.Courses
-                     select new { AuthorName = a.Name, CourseName = b.Name };
+            ////Group join
+            ////LINQ Syntax:
+            ////var query2 =
+            ////    from a in context.Authors
+            ////    join c in context.Courses on a.Id equals c.Author into g
+            ////    select new
+            ////    {
+            ////        AuthorName = a.Name,
+            ////        Courses = g.Count()
+            ////    };
 
-            //Extension Methods (Lambda expressions):
-            var courses = context.Courses.Where(c => c.Name.Contains("c#")).OrderBy(c => c.Name);
+            //var q3 = from a in context.Authors
+            //         from b in context.Courses
+            //         select new { AuthorName = a.Name, CourseName = b.Name };
 
-            foreach (var course in query)
-            {
-                Console.WriteLine(course.Name);
-            }
+            ////Extension Methods (Lambda expressions):
+            //var courses = context.Courses.Where(c => c.Name.Contains("c#")).OrderBy(c => c.Name);
 
-            //
-            var tags = context.Courses.Where(c => c.Level == 1).Select(c => c.Tags);
-            var tags2 = context.Courses.Where(c => c.Level == 1).SelectMany(c => c.Tags);
+            //foreach (var course in query)
+            //{
+            //    Console.WriteLine(course.Name);
+            //}
 
-            //Partitioning
-            context.Courses.Skip(10).Take(10);
+            ////
+            //var tags = context.Courses.Where(c => c.Level == 1).Select(c => c.Tags);
+            //var tags2 = context.Courses.Where(c => c.Level == 1).SelectMany(c => c.Tags);
 
-            //Element Operators
-            context.Courses.FirstOrDefault(c => c.Level > 10);
+            ////Partitioning
+            //context.Courses.Skip(10).Take(10);
 
-            //Quantifying
-            context.Courses.All(c => c.FullPrice > 10); // Any | Count
+            ////Element Operators
+            //context.Courses.FirstOrDefault(c => c.Level > 10);
+
+            ////Quantifying
+            //context.Courses.All(c => c.FullPrice > 10); // Any | Count
 
 
         }
