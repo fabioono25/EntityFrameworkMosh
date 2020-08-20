@@ -56,6 +56,14 @@ namespace Pluto
             //var a = context.Authors.Include(a => a.Courses).Single(a => a.Id == 2);
             //context.Courses.RemoveRange(a.Courses);
             //context.Authors.Remove();
+
+            var entries = context.ChangeTracker.Entries();
+
+            foreach (var entry in entries)
+            {
+                entry.Reload();
+                Console.WriteLine(entry.State);
+            }
         }
     }
 }
