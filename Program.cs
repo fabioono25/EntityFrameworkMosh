@@ -32,7 +32,30 @@ namespace Pluto
     {
         static void Main(string[] args)
         {
+            var context = new PlutoContext();
 
+            var searchCourse = context.Courses.Find(1);
+
+            var authors = context.Authors.ToList();
+            var author = context.Authors.Single(a => a.Id == 1);
+
+            var course = new Course
+            {
+                Name = "Test Course",
+                //Author = new Author {  Id = 1, Name = "John" } //it will generate another register in author table
+                //Author = author
+                AuthorId = 1 //it'll just use the FK directly
+            };
+
+            //add in the DbSet
+            context.Courses.Add(course);
+
+            context.SaveChanges();
+
+            //delete
+            //var a = context.Authors.Include(a => a.Courses).Single(a => a.Id == 2);
+            //context.Courses.RemoveRange(a.Courses);
+            //context.Authors.Remove();
         }
     }
 }
