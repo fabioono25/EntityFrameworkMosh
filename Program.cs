@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Queries.Persistence;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,22 @@ namespace Pluto
             {
                 entry.Reload();
                 Console.WriteLine(entry.State);
+            }
+
+            ///implementing the Repository Pattern
+            using (var unitOfWork = new UnitOfWork(new PlutoContext()))
+            {
+                // Example1
+                var course1 = unitOfWork.Courses.Get(1);
+
+                // Example2
+                var courses = unitOfWork.Courses.GetCoursesWithAuthors(1, 4);
+
+                // Example3
+                var author1 = unitOfWork.Authors.GetAuthorWithCourses(1);
+                unitOfWork.Courses.RemoveRange(author1.Courses);
+                unitOfWork.Authors.Remove(author1);
+                unitOfWork.Complete();
             }
         }
     }
